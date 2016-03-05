@@ -1,0 +1,59 @@
+//文字；排版
+@import (once) "../var/variables";
+.font-family-base(){ font-family: @font-family; }
+.font-size-base(){ font-size: @font-size; }
+
+.text-align-center(){ text-align: center }
+
+//字体颜色
+#textColor{
+  .base(){
+    color: @text-color;
+  }
+
+  .link(){
+    color: @link-color;
+  }
+
+  .link-hover(){
+    color: @link-hover-color;
+  }
+}
+
+.text-height(@height, @lines:1){
+  height: @height * @lines;
+  line-height: @height;
+}
+
+//ellipse one-line text
+.ellipsis-no-wrap(){
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ellipse-wrap(@lines:2){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+}
+
+.ellipse-wrap(@line-height, @lines){
+  .text-height( @line-height, @lines );
+  .ellipse-wrap(@lines);
+}
+
+.el-no-wrap{
+  .ellipsis-no-wrap;
+}
+
+.el-2-line{
+  .ellipse-wrap(2);
+}
+
+.el-2-line(@line-height){
+  &:extend(.el-2-line);
+  .text-height(@line-height, 2);
+}

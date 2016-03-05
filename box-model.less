@@ -1,0 +1,36 @@
+.display-block(){ display: block; }
+.display-inline-block(){ display: inline-block; }
+.display-none(){ display: none; }
+.float-left(){ float: left; }
+.float-right(){ float: right; }
+.margin-auto(){ margin: auto; }
+.center-block(){
+  display: block;
+  .margin-auto;
+}
+.center-table{
+  display: table;
+  .margin-auto;
+}
+.center-inline-block{
+  display: inline-block;
+  .margin-auto;
+}
+
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+.square(@size) {
+  .size(@size; @size);
+}
+
+.size-full(){
+  .size(100%;100%);
+}
+
+.border-box-full(){
+  box-sizing: border-box;
+  .size-full;
+}

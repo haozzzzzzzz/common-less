@@ -1,0 +1,38 @@
+@import (reference) "../typography";
+//buttons
+.button-size( @font-size; @height;) {
+  font-size: @font-size;
+  .text-height(@height);
+  text-align: center;
+}
+
+.button(
+  @rules:{};
+  @hoverRules:{};
+  @activeRules:{};
+  @focusRules: {};
+  @disabledRules : {}
+){
+  @rules();
+
+  &.hover,
+  &:hover{
+    @hoverRules();
+  }
+
+  &.active,
+  &:active{
+    @activeRules();
+  }
+
+  &.focus,
+  &:focus{
+    @focusRules();
+  }
+
+  &.disabled,
+  &[disabled]{
+    @disabledRules();
+  }
+
+}

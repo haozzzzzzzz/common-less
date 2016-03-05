@@ -1,0 +1,43 @@
+//媒体查询
+
+@import (once) "../var/variables";
+
+//超小屏规则
+.xs-screen-rule(@rule:{}){
+  @media screen and ( max-width: @screen-xs-max ) {
+    @rule();
+  }
+}
+
+//小屏规则
+.sm-screen-rule(@rule:{}){
+  @media screen and ( min-width: @screen-sm-min ) and ( max-width: @screen-sm-max ){
+    @rule();
+  }
+}
+
+//中型屏
+.md-screen-rule(@rule:{}){
+  @media screen and ( min-width: @screen-md-min ) and ( max-width: @screen-md-max ) {
+    @rule();
+  }
+}
+
+//大屏
+.lg-screen-rule(@rule:{}){
+  @media screen and ( min-width: @screen-lg-min ) {
+    @rule();
+  }
+}
+
+.media-screen-rule(
+  @xs-rule:{};
+  @sm-rule:{};
+  @md-rule:{};
+  @lg-rule:{}
+){
+  .xs-screen-rule(@xs-rule);
+  .sm-screen-rule(@sm-rule);
+  .md-screen-rule(@md-rule);
+  .lg-screen-rule(@lg-rule);
+}
