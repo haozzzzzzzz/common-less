@@ -1,24 +1,5 @@
 //文字；排版
-@import (once) "../var/variables";
-.font-family-base(){ font-family: @font-family; }
-.font-size-base(){ font-size: @font-size; }
-
 .text-align-center(){ text-align: center }
-
-//字体颜色
-#textColor{
-  .base(){
-    color: @text-color;
-  }
-
-  .link(){
-    color: @link-color;
-  }
-
-  .link-hover(){
-    color: @link-hover-color;
-  }
-}
 
 .text-height(@height, @lines:1){
   height: @height * @lines;
