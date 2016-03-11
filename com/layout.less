@@ -1,0 +1,65 @@
+@import (reference) "html";
+
+//左右自动伸缩的布局 auto left-right layout
+.alr-layout{
+  position: relative;
+  display: table;
+  width: 100%;
+}
+
+.alr-left{
+  .float-left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.alr-main{
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.alr-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+}
+
+//对齐高度
+.alr-align-h{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+//left-main padding
+.alr-padding(lm;@lWidth;@mPadLeft;@lRules:{};@mRules:{}){
+  .alr-left{
+    width: @lWidth;
+    @lRules();
+  }
+
+  .alr-main{
+    padding-left: @mPadLeft;
+    @mRules();
+  }
+}
+
+//left-main-right
+.alr-padding(lmr;@lWidth;@mPadLeft;@rWidth;@mPadRight;@lRules:{};@mRules:{};@rRules:{}){
+  .alr-padding(lm;@lWidth;@mPadLeft;@lRules;@mRules);
+
+  .alr-main{
+    padding-right: @mPadRight;
+  }
+
+  .alr-right{
+    width: @rWidth;
+    @rRules();
+  }
+}
