@@ -6,6 +6,12 @@
   line-height: @height;
 }
 
+.max-text-hegiht(@height, @lines:1){
+  max-height: @height * @lines;
+  height: auto;
+  line-height: @height;
+}
+
 //ellipse one-line text
 .ellipsis-no-wrap(){
   text-overflow: ellipsis;
