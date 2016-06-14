@@ -99,3 +99,13 @@
   background-color: @rgba;
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@rgba),argb(@rgba))); // IE9 and down
 }
+
+.background-size( @size ){
+  -webkit-background-size: @size;
+  background-size: @size;
+}
+
+.bg-img-cover(){
+  background-position: center center;
+  .background-size( cover );
+}
